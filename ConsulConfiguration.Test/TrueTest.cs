@@ -2,7 +2,7 @@ using Xunit;
 
 namespace DarkXaHTeP.Extensions.Configuration.Consul.Test
 {
-    public class True
+    public class TrueTest
     {
         [Fact]
         public void ShouldBeTrue()
