@@ -1,17 +1,15 @@
-﻿using System.Net.Http;
+﻿using DarkXaHTeP.Extensions.Configuration.Consul.ConsulClient;
 using Microsoft.Extensions.Configuration;
 
 namespace DarkXaHTeP.Extensions.Configuration.Consul
 {
     public class ConsulConfigurationProvider: ConfigurationProvider
     {
-        private readonly string _consulAddress;
-        private readonly HttpClient _httpClient;
+        private readonly IConsulKvStoreClient _consulClient;
 
-        internal ConsulConfigurationProvider(string consulAddress, HttpClient httpClient)
+        internal ConsulConfigurationProvider(IConsulKvStoreClient consulClient)
         {
-            _consulAddress = consulAddress;
-            _httpClient = httpClient;
+            _consulClient = consulClient;
         }
 
         public override void Load()
