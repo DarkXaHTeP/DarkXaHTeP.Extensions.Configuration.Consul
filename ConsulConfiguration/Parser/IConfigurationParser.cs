@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DarkXaHTeP.Extensions.Configuration.Consul.ConfigurationParser
+namespace DarkXaHTeP.Extensions.Configuration.Consul.Parser
 {
     public interface IConfigurationParser
     {

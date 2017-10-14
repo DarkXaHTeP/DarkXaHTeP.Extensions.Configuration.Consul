@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace DarkXaHTeP.Extensions.Configuration.Consul.ConfigurationParser
+namespace DarkXaHTeP.Extensions.Configuration.Consul.Parser
 {
     public class ConfigurationParser: IConfigurationParser
     {
