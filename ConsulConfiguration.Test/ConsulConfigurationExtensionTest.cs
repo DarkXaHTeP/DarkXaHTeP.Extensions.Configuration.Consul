@@ -6,33 +6,33 @@ using Xunit;
 
 namespace DarkXaHTeP.Extensions.Configuration.Consul.Test
 {
-    public class StringSettings
+    public abstract class StringSettings
     {
         public string StringProp { get; set; }
     }
 
-    public class BoolSettings
+    public abstract class BoolSettings
     {
         public bool TrueBoolProp { get; set; }
         public bool FalseBoolProp { get; set; }
     }
     
-    public class ObjectSettings
+    public abstract class ObjectSettings
     {
         public StringSettings SubKey { get; set; }
     }
 
-    public class StringArraySettings
+    public abstract class StringArraySettings
     {
         public string[] ArrayKeys { get; set; }
     }
 
-    public class ObjectArraySettings
+    public abstract class ObjectArraySettings
     {
         public StringSettings[] ArrayObjects { get; set; }
     }
 
-    public class NumericSettings
+    public abstract class NumericSettings
     {
         public int IntProp { get; set; }
         public float FloatProp { get; set; }
