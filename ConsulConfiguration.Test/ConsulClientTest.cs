@@ -29,7 +29,7 @@ namespace DarkXaHTeP.Extensions.Configuration.Consul.Test
 
             var kvPair = result.Single();
             
-            Assert.Equal("testkey", kvPair.Key);
+            Assert.Equal("service/testkey", kvPair.Key);
             Assert.Equal("testvalue", kvPair.Value);
         }
     }
