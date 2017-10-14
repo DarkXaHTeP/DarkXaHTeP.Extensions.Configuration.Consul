@@ -16,20 +16,20 @@ namespace DarkXaHTeP.Extensions.Configuration.Consul.Test
         public bool TrueBoolProp { get; set; }
         public bool FalseBoolProp { get; set; }
     }
-
-    public class SubKeySettings
-    {
-        public string StringProp2 { get; set; }
-    }
     
     public class ObjectSettings
     {
-        public SubKeySettings SubKey { get; set; }
+        public StringSettings SubKey { get; set; }
     }
 
     public class StringArraySettings
     {
         public string[] ArrayKeys { get; set; }
+    }
+
+    public class ObjectArraySettings
+    {
+        public StringSettings[] ArrayObjects { get; set; }
     }
 
     public class NumericSettings
@@ -82,7 +82,7 @@ namespace DarkXaHTeP.Extensions.Configuration.Consul.Test
         {
             var config = GetConfig<ObjectSettings>();
             
-            Assert.Equal("StringValue2", config.SubKey.StringProp2);
+            Assert.Equal("StringValue2", config.SubKey.StringProp);
         }
 
         [Fact]
@@ -94,6 +94,16 @@ namespace DarkXaHTeP.Extensions.Configuration.Consul.Test
             Assert.Equal("array0", config.ArrayKeys[0]);
             Assert.Equal("array1", config.ArrayKeys[1]);
             Assert.Equal("array2", config.ArrayKeys[2]);
+        }
+
+        [Fact]
+        public void ShouldMapObjectArray()
+        {
+            var config = GetConfig<ObjectArraySettings>();
+            
+            Assert.Equal(2, config.ArrayObjects.Length);
+            Assert.Equal("array string 0", config.ArrayObjects[0].StringProp);
+            Assert.Equal("array string 1", config.ArrayObjects[1].StringProp);
         }
 
         [Fact]
