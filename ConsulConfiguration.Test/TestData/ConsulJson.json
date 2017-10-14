@@ -1,0 +1,74 @@
+[
+    {
+        "LockIndex": 0,
+        "Key": "TestApp/ArrayKeys[0]",
+        "Flags": 0,
+        "Value": "YXJyYXkw",
+        "CreateIndex": 3376,
+        "ModifyIndex": 3376
+    },
+    {
+        "LockIndex": 0,
+        "Key": "TestApp/ArrayKeys[1]",
+        "Flags": 0,
+        "Value": "YXJyYXkx",
+        "CreateIndex": 3377,
+        "ModifyIndex": 3377
+    },
+    {
+        "LockIndex": 0,
+        "Key": "TestApp/ArrayKeys[2]",
+        "Flags": 0,
+        "Value": "YXJyYXky",
+        "CreateIndex": 3379,
+        "ModifyIndex": 3379
+    },
+    {
+        "LockIndex": 0,
+        "Key": "TestApp/FalseBoolProp",
+        "Flags": 0,
+        "Value": "ZmFsc2U=",
+        "CreateIndex": 3276,
+        "ModifyIndex": 3276
+    },
+    {
+        "LockIndex": 0,
+        "Key": "TestApp/FloatProp",
+        "Flags": 0,
+        "Value": "MS4wMDE=",
+        "CreateIndex": 3280,
+        "ModifyIndex": 3280
+    },
+    {
+        "LockIndex": 0,
+        "Key": "TestApp/IntProp",
+        "Flags": 0,
+        "Value": "MTAzMg==",
+        "CreateIndex": 3277,
+        "ModifyIndex": 3277
+    },
+    {
+        "LockIndex": 0,
+        "Key": "TestApp/StringProp",
+        "Flags": 0,
+        "Value": "U3RyaW5nVmFsdWU=",
+        "CreateIndex": 3259,
+        "ModifyIndex": 3259
+    },
+    {
+        "LockIndex": 0,
+        "Key": "TestApp/SubKey/StringProp2",
+        "Flags": 0,
+        "Value": "U3RyaW5nVmFsdWUy",
+        "CreateIndex": 3262,
+        "ModifyIndex": 3262
+    },
+    {
+        "LockIndex": 0,
+        "Key": "TestApp/TrueBoolProp",
+        "Flags": 0,
+        "Value": "dHJ1ZQ==",
+        "CreateIndex": 3274,
+        "ModifyIndex": 3274
+    }
+]
