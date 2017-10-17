@@ -21,7 +21,10 @@ namespace DarkXaHTeP.Extensions.Configuration.Consul.ConsulClient
         public Dictionary<string, string> ReadKeysRecursively()
         {
             string response = _httpClient.GetStringAsync(_consulAddress).GetAwaiter().GetResult();
-            var kvEntries = JsonConvert.DeserializeObject<ConsulKvStoreItem[]>(response);
+            var kvEntries = JsonConvert
+                .DeserializeObject<ConsulKvStoreItem[]>(response)
+                .Where(kv => !String.IsNullOrEmpty(kv.Value));
+
             var dictionary = kvEntries.ToDictionary(
                 e => e.Key,
                 e => DecodeValue(e.Value));
