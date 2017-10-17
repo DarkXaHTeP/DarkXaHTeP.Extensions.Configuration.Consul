@@ -4,12 +4,12 @@
     <RootNamespace>DarkXaHTeP.Extensions.Configuration.Consul</RootNamespace>
     <Description>Consul configuration provider implementation for Microsoft.Extensions.Configuration.</Description>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.0.2</Version>
+    <Version>0.0.3</Version>
     <Authors>DarkXaHTeP</Authors>
     <Description>Consul configuration provider for Microsoft.Entensions.Configuration</Description>
     <PackageProjectUrl>https://github.com/DarkXaHTeP/DarkXaHTeP.Extensions.Configuration.Consul</PackageProjectUrl>
     <RepositoryUrl>https://github.com/DarkXaHTeP/DarkXaHTeP.Extensions.Configuration.Consul</RepositoryUrl>
-    <PackageReleaseNotes>Initial CI-built release</PackageReleaseNotes>
+    <PackageReleaseNotes>Fixed issue with null Value</PackageReleaseNotes>
     <PackageTags>config;configuration;microsoft.extensions.configuration;provider;consul;kvstore</PackageTags>
     <IncludeSymbols>false</IncludeSymbols>
   </PropertyGroup>
