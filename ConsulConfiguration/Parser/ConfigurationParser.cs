@@ -19,6 +19,7 @@ namespace DarkXaHTeP.Extensions.Configuration.Consul.Parser
         public Dictionary<string, string> ParseConfiguration(Dictionary<string, string> consulKvDictionary)
         {
             Dictionary<string, string> results = consulKvDictionary
+                .Where(kv => !String.IsNullOrEmpty(kv.Value))
                 .Select(kv => ParseKey(kv.Key, kv.Value))
                 .ToDictionary(kv => kv.Key, kv => kv.Value);
 

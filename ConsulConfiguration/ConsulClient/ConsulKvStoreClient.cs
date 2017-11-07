@@ -22,8 +22,7 @@ namespace DarkXaHTeP.Extensions.Configuration.Consul.ConsulClient
         {
             string response = _httpClient.GetStringAsync(_consulAddress).GetAwaiter().GetResult();
             var kvEntries = JsonConvert
-                .DeserializeObject<ConsulKvStoreItem[]>(response)
-                .Where(kv => !String.IsNullOrEmpty(kv.Value));
+                .DeserializeObject<ConsulKvStoreItem[]>(response);
 
             var dictionary = kvEntries.ToDictionary(
                 e => e.Key,
