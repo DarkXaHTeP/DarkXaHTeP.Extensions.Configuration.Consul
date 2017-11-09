@@ -1,7 +1,5 @@
 ﻿using System.Net.Http;
-using DarkXaHTeP.Extensions.Configuration.Consul.ConsulAddressProvider;
-using DarkXaHTeP.Extensions.Configuration.Consul.ConsulClient;
-using DarkXaHTeP.Extensions.Configuration.Consul.Parser;
+using DarkXaHTeP.Extensions.Configuration.Consul.Internal;
 using Microsoft.Extensions.Configuration;
 
 namespace DarkXaHTeP.Extensions.Configuration.Consul

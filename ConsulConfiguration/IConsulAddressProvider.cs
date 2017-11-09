@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DarkXaHTeP.Extensions.Configuration.Consul.ConsulAddressProvider
+﻿namespace DarkXaHTeP.Extensions.Configuration.Consul
 {
     public interface IConsulAddressProvider
     {

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using DarkXaHTeP.Extensions.Configuration.Consul.Parser;
+using DarkXaHTeP.Extensions.Configuration.Consul.Internal;
 using Xunit;
 
 namespace DarkXaHTeP.Extensions.Configuration.Consul.Test

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace DarkXaHTeP.Extensions.Configuration.Consul.Parser
+namespace DarkXaHTeP.Extensions.Configuration.Consul.Internal
 {
-    public class ConfigurationParser: IConfigurationParser
+    internal class ConfigurationParser: IConfigurationParser
     {
         private readonly Regex _arrayRegex = new Regex(@"\[\d+\]$");
         private readonly string _keyDelimiter = ":";

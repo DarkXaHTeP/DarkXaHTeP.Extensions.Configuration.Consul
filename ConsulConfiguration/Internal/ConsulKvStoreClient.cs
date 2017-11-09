@@ -5,9 +5,9 @@ using System.Net.Http;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace DarkXaHTeP.Extensions.Configuration.Consul.ConsulClient
+namespace DarkXaHTeP.Extensions.Configuration.Consul.Internal
 {
-    public class ConsulKvStoreClient: IConsulKvStoreClient
+    internal class ConsulKvStoreClient: IConsulKvStoreClient
     {
         private readonly HttpClient _httpClient;
         private readonly string _consulAddress;

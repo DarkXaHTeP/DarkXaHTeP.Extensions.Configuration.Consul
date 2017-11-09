@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 
-namespace DarkXaHTeP.Extensions.Configuration.Consul.ConsulAddressProvider
+namespace DarkXaHTeP.Extensions.Configuration.Consul.Internal
 {
-    public class DefaultConsulAddressProvider: IConsulAddressProvider
+    internal class DefaultConsulAddressProvider: IConsulAddressProvider
     {
         public string GetBaseAddress(string host, uint? port)
         {

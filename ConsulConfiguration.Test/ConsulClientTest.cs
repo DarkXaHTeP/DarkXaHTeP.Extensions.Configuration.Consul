@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using DarkXaHTeP.Extensions.Configuration.Consul.ConsulClient;
+using DarkXaHTeP.Extensions.Configuration.Consul.Internal;
 using RichardSzalay.MockHttp;
 using Xunit;
 

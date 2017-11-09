@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
-using DarkXaHTeP.Extensions.Configuration.Consul.ConsulClient;
-using DarkXaHTeP.Extensions.Configuration.Consul.Parser;
+using DarkXaHTeP.Extensions.Configuration.Consul.Internal;
 using Microsoft.Extensions.Configuration;
 
 namespace DarkXaHTeP.Extensions.Configuration.Consul
