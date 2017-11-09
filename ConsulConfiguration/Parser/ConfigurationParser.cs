@@ -9,15 +9,12 @@ namespace DarkXaHTeP.Extensions.Configuration.Consul.Parser
     {
         private readonly Regex _arrayRegex = new Regex(@"\[\d+\]$");
         private readonly string _keyDelimiter = ":";
-        private readonly string _prefix;
+        private string _prefix;
 
-        public ConfigurationParser(string prefix)
+        public Dictionary<string, string> ParseConfiguration(Dictionary<string, string> consulKvDictionary, string prefix)
         {
             _prefix = prefix;
-        }
-
-        public Dictionary<string, string> ParseConfiguration(Dictionary<string, string> consulKvDictionary)
-        {
+            
             Dictionary<string, string> results = consulKvDictionary
                 .Where(kv => !String.IsNullOrEmpty(kv.Value))
                 .Select(kv => ParseKey(kv.Key, kv.Value))

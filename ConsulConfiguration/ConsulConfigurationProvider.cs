@@ -9,17 +9,22 @@ namespace DarkXaHTeP.Extensions.Configuration.Consul
     {
         private readonly IConsulKvStoreClient _consulClient;
         private readonly IConfigurationParser _parser;
+        private readonly string _consulKey;
 
-        internal ConsulConfigurationProvider(IConsulKvStoreClient consulClient, IConfigurationParser parser)
+        internal ConsulConfigurationProvider(ConsulConfigurationSource source)
         {
-            _consulClient = consulClient;
-            _parser = parser;
+            string consulAddress = source.ConsulAddressProvider.GetBaseAddress(source.Host, source.Port);
+
+            _consulKey = source.ConsulKey;
+            
+            _consulClient = new ConsulKvStoreClient(source.HttpClient, consulAddress, _consulKey);
+            _parser = source.ConfigurationParser;
         }
 
         public override void Load()
         {
-            Dictionary<string, string> consulData = _consulClient.ReadKeysRecursively();
-            Dictionary<string, string> config = _parser.ParseConfiguration(consulData);
+            Dictionary<string, string> consulKeys = _consulClient.ReadKeysRecursively();
+            Dictionary<string, string> config = _parser.ParseConfiguration(consulKeys, _consulKey);
             Data = config;
         }
     }

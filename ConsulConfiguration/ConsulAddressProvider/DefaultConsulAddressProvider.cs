@@ -5,7 +5,7 @@ namespace DarkXaHTeP.Extensions.Configuration.Consul.ConsulAddressProvider
 {
     public class DefaultConsulAddressProvider: IConsulAddressProvider
     {
-        public string GetConsulBaseAddress(string host, uint? port)
+        public string GetBaseAddress(string host, uint? port)
         {
             var consulBaseAddress = ResolveBaseAddress(host, port);
             return $"http://{consulBaseAddress}";

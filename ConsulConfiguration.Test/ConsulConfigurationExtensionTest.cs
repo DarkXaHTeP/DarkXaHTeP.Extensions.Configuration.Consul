@@ -57,7 +57,7 @@ namespace DarkXaHTeP.Extensions.Configuration.Consul.Test
                 .Respond("application/json", jsonResponse);
 
             _builder = new ConfigurationBuilder()
-                .AddConsul("TestApp", null, null, null, mockHttp.ToHttpClient());
+                .AddConsul("TestApp", null, null, mockHttp.ToHttpClient());
         }
 
         [Fact]

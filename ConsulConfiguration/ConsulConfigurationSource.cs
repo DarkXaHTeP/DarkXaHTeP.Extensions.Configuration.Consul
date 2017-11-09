@@ -8,28 +8,32 @@ namespace DarkXaHTeP.Extensions.Configuration.Consul
 {
     public class ConsulConfigurationSource : IConfigurationSource
     {
-        private readonly IConsulKvStoreClient _consulClient;
-        private readonly IConfigurationParser _parser;
+        public string ConsulKey { get; set; }
+        public string Host { get; set; }
+        public uint? Port { get; set; }
+        public IConsulAddressProvider ConsulAddressProvider { get; set; }
+        public IConfigurationParser ConfigurationParser { get; set; }
+        public HttpClient HttpClient { get; set; }
 
-        internal ConsulConfigurationSource(string consulKey, string host, uint? port, IConsulAddressProvider consulAddressProvider, HttpClient httpClient)
-        {
-            var http = httpClient ?? new HttpClient();
-            var addressProvider = consulAddressProvider ?? new DefaultConsulAddressProvider();
-
-            var key = NormalizeConsulKey(consulKey);
-            var consulBaseAddress = addressProvider.GetConsulBaseAddress(host, port);
-            _consulClient = new ConsulKvStoreClient(http, consulBaseAddress, key);
-            _parser = new ConfigurationParser(key);
-        }
+        internal ConsulConfigurationSource()
+        {}
         
         public IConfigurationProvider Build(IConfigurationBuilder builder)
         {
-            return new ConsulConfigurationProvider(_consulClient, _parser);
+            EnsureDefaults();
+            return new ConsulConfigurationProvider(this);
+        }
+
+        private void EnsureDefaults()
+        {
+            ConsulAddressProvider = ConsulAddressProvider ?? new DefaultConsulAddressProvider();
+            ConfigurationParser = ConfigurationParser ?? new ConfigurationParser();
+            HttpClient = HttpClient ?? new HttpClient();
         }
         
-        private string NormalizeConsulKey(string consulKey)
+        public void NormalizeConsulKey()
         {
-            string normalizedKey = consulKey;
+            string normalizedKey = ConsulKey;
             
             if (normalizedKey.StartsWith("/"))
             {
@@ -41,7 +45,7 @@ namespace DarkXaHTeP.Extensions.Configuration.Consul
                 normalizedKey = normalizedKey.Substring(0, normalizedKey.Length - 1);
             }
 
-            return normalizedKey;
+            ConsulKey = normalizedKey;
         }
 
     }

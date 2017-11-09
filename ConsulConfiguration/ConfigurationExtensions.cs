@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Net.Http;
-using DarkXaHTeP.Extensions.Configuration.Consul.ConsulAddressProvider;
 using Microsoft.Extensions.Configuration;
 
 namespace DarkXaHTeP.Extensions.Configuration.Consul
@@ -14,21 +13,40 @@ namespace DarkXaHTeP.Extensions.Configuration.Consul
         
         public static IConfigurationBuilder AddConsul(this IConfigurationBuilder builder, string consulKey, string host, uint? port)
         {
-            return AddConsul(builder, consulKey, host, port, null, null);
+            return AddConsul(builder, consulKey, host, port, null);
         }
         
-        public static IConfigurationBuilder AddConsul(this IConfigurationBuilder builder, string consulKey, string host, uint? port, IConsulAddressProvider consulAddressProvider, HttpClient httpClient)
+        public static IConfigurationBuilder AddConsul(this IConfigurationBuilder builder, string consulKey, string host, uint? port, HttpClient httpClient)
+        {
+            return AddConsul(
+                builder,
+                source =>
+                {
+                    source.ConsulKey = consulKey;
+                    source.Host = host;
+                    source.Port = port;
+                    source.HttpClient = httpClient;
+                });
+        }
+
+        public static IConfigurationBuilder AddConsul(this IConfigurationBuilder builder, Action<ConsulConfigurationSource> configureSource)
         {
             if (builder == null)
             {
                 throw new ArgumentNullException(nameof(builder));
             }
-            if (string.IsNullOrEmpty(consulKey))
+
+            var source = new ConsulConfigurationSource();
+            configureSource(source);
+
+            if (String.IsNullOrEmpty(source.ConsulKey))
             {
-                throw new ArgumentException("Consul Key cannot be null", nameof(consulKey));
+                throw new ArgumentNullException("Consul Key");
             }
             
-            return builder.Add(new ConsulConfigurationSource(consulKey, host, port, consulAddressProvider, httpClient));
+            source.NormalizeConsulKey();
+            
+            return builder.Add(source);
         }
     }
 }

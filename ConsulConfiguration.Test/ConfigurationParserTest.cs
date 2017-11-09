@@ -22,9 +22,9 @@ namespace DarkXaHTeP.Extensions.Configuration.Consul.Test
                 {$"{consulPrefix}/{consulKey}", testValue}
             };
 
-            var parser = new ConfigurationParser(consulPrefix);
+            var parser = new ConfigurationParser();
 
-            var result = parser.ParseConfiguration(consulData);
+            var result = parser.ParseConfiguration(consulData, consulPrefix);
 
             Assert.Single(result);
             Assert.True(result.ContainsKey(configurationKey), "Parsed configuration doesn't contain key");
