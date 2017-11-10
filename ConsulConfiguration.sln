@@ -14,7 +14,6 @@ ProjectSection(SolutionItems) = preProject
 	publish.sh = publish.sh
 	test.sh = test.sh
 	.travis.yml = .travis.yml
-	NuGet.config = NuGet.config
 EndProjectSection
 EndProject
 Global
