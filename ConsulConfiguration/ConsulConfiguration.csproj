@@ -4,11 +4,11 @@
     <RootNamespace>DarkXaHTeP.Extensions.Configuration.Consul</RootNamespace>
     <Description>Consul configuration provider implementation for Microsoft.Extensions.Configuration.</Description>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.0.3</Version>
+    <Version>0.0.4</Version>
     <Authors>DarkXaHTeP</Authors>
     <PackageProjectUrl>https://github.com/DarkXaHTeP/DarkXaHTeP.Extensions.Configuration.Consul</PackageProjectUrl>
     <RepositoryUrl>https://github.com/DarkXaHTeP/DarkXaHTeP.Extensions.Configuration.Consul</RepositoryUrl>
-    <PackageReleaseNotes>Fixed issue with null Value</PackageReleaseNotes>
+    <PackageReleaseNotes>Added http errors handling</PackageReleaseNotes>
     <PackageTags>config;configuration;microsoft.extensions.configuration;provider;consul;kvstore</PackageTags>
     <IncludeSymbols>false</IncludeSymbols>
   </PropertyGroup>
