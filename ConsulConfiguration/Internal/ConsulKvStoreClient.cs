@@ -11,17 +11,28 @@ namespace DarkXaHTeP.Extensions.Configuration.Consul.Internal
     internal class ConsulKvStoreClient: IConsulKvStoreClient
     {
         private readonly HttpClient _httpClient;
+        private readonly string _baseAddress;
         private readonly string _consulAddress;
 
         public ConsulKvStoreClient(HttpClient httpClient, string baseAddress, string prefix)
         {
             _httpClient = httpClient;
+            _baseAddress = baseAddress;
             _consulAddress = $"{baseAddress}/v1/kv/{prefix}?recurse=true";
         }
         
         public Dictionary<string, string> ReadKeysRecursively()
         {
-            HttpResponseMessage responseMessage = _httpClient.GetAsync(_consulAddress).GetAwaiter().GetResult();
+            HttpResponseMessage responseMessage;
+
+            try
+            {
+                responseMessage = _httpClient.GetAsync(_consulAddress).GetAwaiter().GetResult();
+            }
+            catch (HttpRequestException e)
+            {
+                throw new ConsulConfigurationException($"Unable to connect to Consul using address: {_baseAddress}", e);
+            }
 
             if (responseMessage.StatusCode != HttpStatusCode.OK)
             {
