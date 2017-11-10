@@ -56,6 +56,11 @@ namespace DarkXaHTeP.Extensions.Configuration.Consul.Internal
 
         private string DecodeValue(string value)
         {
+            if (value == null)
+            {
+                return null;
+            }
+            
             byte[] data = Convert.FromBase64String(value);
             string decodedString = Encoding.UTF8.GetString(data);
             return decodedString;
