@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using Newtonsoft.Json;
@@ -20,7 +21,18 @@ namespace DarkXaHTeP.Extensions.Configuration.Consul.Internal
         
         public Dictionary<string, string> ReadKeysRecursively()
         {
-            string response = _httpClient.GetStringAsync(_consulAddress).GetAwaiter().GetResult();
+            HttpResponseMessage responseMessage = _httpClient.GetAsync(_consulAddress).GetAwaiter().GetResult();
+
+            if (responseMessage.StatusCode != HttpStatusCode.OK)
+            {
+                int statusCode = (int) responseMessage.StatusCode;
+                string statusCodeDescription = responseMessage.StatusCode.ToString();
+                
+                throw new ConsulConfigurationException($"Consul response status code doesn't indicate success: {statusCode} {statusCodeDescription}");
+            }
+
+            string response = responseMessage.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+            
             var kvEntries = JsonConvert
                 .DeserializeObject<ConsulKvStoreItem[]>(response);
 
