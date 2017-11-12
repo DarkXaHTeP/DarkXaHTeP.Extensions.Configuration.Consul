@@ -4,3 +4,6 @@ Consul configuration provider implementation for Microsoft.Extensions.Configurat
 ### NuGet
 [![NuGet Version](https://img.shields.io/nuget/v/DarkXaHTeP.Extensions.Configuration.Consul.svg?style=flat-square)](https://www.nuget.org/packages/DarkXaHTeP.Extensions.Configuration.Consul/)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/DarkXaHTeP.Extensions.Configuration.Consul.svg?style=flat-square)](https://www.nuget.org/packages/DarkXaHTeP.Extensions.Configuration.Consul/)
+
+### Build
+[![Travis build](https://img.shields.io/travis/DarkXaHTeP/DarkXaHTeP.Extensions.Configuration.Consul/master.svg?style=flat-square)](https://travis-ci.org/DarkXaHTeP/DarkXaHTeP.Extensions.Configuration.Consul)
