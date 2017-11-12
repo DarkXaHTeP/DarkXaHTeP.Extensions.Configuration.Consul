@@ -19,7 +19,7 @@ Install package into your project from [NuGet](https://www.nuget.org/packages/Da
 
 ```c#
 IConfigurationBuilder builder = new ConfigurationBuilder()
-    .AddConsul("ConsulKey");
+    .AddConsul("ExampleConsulKey");
     
 IConfiguration configuration = builder.Build()
 ```
@@ -34,17 +34,20 @@ IWebHost webHost = new WebHostBuilder()
     {
         config
             .AddJsonFile("appsettings.json", true, true)
-            .AddConsul("ConsulKey")
+            .AddConsul("ExampleConsulKey")
             .AddEnvironmentVariables()
             .AddCommandLine(args);
     })
     .UseStartup<Startup>()
     .Build();
 ```
-### What happens internally
-In both cases Consul configuration provider will make a GET HTTP Request to Consul ...
+
+#### What happens internally
+
+In both cases Consul configuration provider will make a GET HTTP request to Consul using URL `http://localhost:8500//v1/kv/ExampleConsulKey?recurse=true` to list all sub-keys of `ExampleConsulKey` and add them to configuration dictionary
 
 ## Release notes
+
 For release notes please see [CHANGELOG.md](https://github.com/DarkXaHTeP/DarkXaHTeP.Extensions.Configuration.Consul/blob/master/CHANGELOG.md)
 
 ## Advanced Usage
