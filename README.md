@@ -65,15 +65,17 @@ In case your Consul agent doesn't run on `http://localhost:8500` it is possible 
 Please note that both host and port should be specified to be used.
 
 #### Parsing sub-keys
-Let's assume that your Consul KV Store contains next keys:
+When Consul provider is added like this `.AddConsul("ExampleConsulKey")`, it will create a set of configuration entries.
+Let's assume that your Consul KV Store contains next keys. Corresponding configuration keys are listed in the right column:
 
-| Key                                      |
-|------------------------------------------|
-| ExampleConsulKey/key1                    |
-| ExampleConsulKey/key2                    |
-| ExampleConsulKey/key3/subkey1            |
-| ExampleConsulKey/key4/subkey1/subsubkey1 |
-| OtherKey                                 |
+| Consul KV Store Key                      | Configuration Key            |
+|------------------------------------------|------------------------------|
+| ExampleConsulKey/key1                    | key1                         |
+| ExampleConsulKey/key2                    | key2                         |
+| ExampleConsulKey/key3/subkey1            | key3:subkey1                 |
+| ExampleConsulKey/key4/subkey1/subsubkey1 | key4:subkey1:subsubkey1      |
+| OtherKey                                 |                              |
 
+`OtherKey` will not be included because it is not under `ExampleConsulKey` key.
 
 #### Parsing arrays
