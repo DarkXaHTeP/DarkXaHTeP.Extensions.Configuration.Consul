@@ -12,8 +12,11 @@ Consul configuration provider implementation for Microsoft.Extensions.Configurat
 [![Travis build](https://img.shields.io/travis/DarkXaHTeP/DarkXaHTeP.Extensions.Configuration.Consul/master.svg)](https://travis-ci.org/DarkXaHTeP/DarkXaHTeP.Extensions.Configuration.Consul)
 
 ## Usage
+
 Install package into your project from [NuGet](https://www.nuget.org/packages/DarkXaHTeP.Extensions.Configuration.Consul/) and use `AddConsul` extension method on `IConfigurationBuilder` as shown in examples below:
-### Creating `ConfigurationBuilder` manually
+
+#### Creating `ConfigurationBuilder` manually
+
 ```c#
 IConfigurationBuilder builder = new ConfigurationBuilder()
     .AddConsul("ConsulKey");
@@ -21,7 +24,8 @@ IConfigurationBuilder builder = new ConfigurationBuilder()
 IConfiguration configuration = builder.Build()
 ```
 
-### Building Asp.Net Core 2.0 Host
+#### Building Asp.Net Core 2.0 Host
+
 ```c#
 IWebHost webHost = new WebHostBuilder()
     .UseKestrel()
@@ -43,6 +47,10 @@ In both cases Consul configuration provider will make a GET HTTP Request to Cons
 ## Release notes
 For release notes please see [CHANGELOG.md](https://github.com/DarkXaHTeP/DarkXaHTeP.Extensions.Configuration.Consul/blob/master/CHANGELOG.md)
 
-## Providing custom Consul address
-
 ## Advanced Usage
+
+#### Providing custom Consul address
+
+#### Parsing sub-keys
+
+#### Parsing arrays
