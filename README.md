@@ -66,7 +66,7 @@ Please note that both host and port should be specified to be used.
 
 #### Parsing sub-keys
 When Consul provider is added like this `.AddConsul("ExampleConsulKey")`, it will create a set of configuration entries.
-Let's assume that your Consul KV Store contains next keys. Corresponding configuration keys are listed in the right column:
+Let's assume that your Consul KV Store contains keys listed in the left table column. Corresponding configuration keys are listed on the right:
 
 | Consul KV Store Key                      | Configuration Key            |
 |------------------------------------------|------------------------------|
