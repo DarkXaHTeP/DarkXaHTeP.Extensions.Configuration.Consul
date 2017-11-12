@@ -80,6 +80,17 @@ Let's assume that Consul provider is added like this `.AddConsul("ExampleConsulK
 
 #### Parsing arrays
 
+Consul provider allows defining arrays by adding item index in square brackets to the Consul KV Store key
+
+| Consul KV StoreKey                | Configuration Key |
+|-----------------------------------|-------------------|
+| ExampleConsulKey/keys[0]          | keys:0            |
+| ExampleConsulKey/keys[1]          | keys:1            |
+| ExampleConsulKey/keys2[0]/subkey1 | keys2:0:subkey1   |
+| ExampleConsulKey/keys2[0]/subkey2 | keys2:0:subkey2   |
+| ExampleConsulKey/keys2[1]/subkey1 | keys2:1:subkey1   |
+| ExampleConsulKey/keys2[1]/subkey2 | keys2:1:subkey2   |
+
 #### Creating strongly typed configuration
 
 Consul provider defines settings in a well-known format (colon as delimiter for sub-keys and array indexes) that allows binding to types
