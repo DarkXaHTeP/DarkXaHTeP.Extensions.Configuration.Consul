@@ -65,6 +65,7 @@ In case your Consul agent doesn't run on `http://localhost:8500` it is possible 
 Please note that both host and port should be specified to be used.
 
 #### Parsing sub-keys
+
 Let's assume that Consul provider is added like this `.AddConsul("ExampleConsulKey")`and Consul KV Store contains keys listed in the left table column. Corresponding configuration keys, that will be created by provider, are listed on the right:
 
 | Consul KV Store Key                      | Configuration Key            |
@@ -78,3 +79,11 @@ Let's assume that Consul provider is added like this `.AddConsul("ExampleConsulK
 `OtherKey` will not be included because it is not under `ExampleConsulKey` key.
 
 #### Parsing arrays
+
+#### Creating strongly typed configuration
+
+Consul provider defines settings in a well-known format (colon as delimiter for sub-keys and array indexes) that allows binding to types
+using [Configuration Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/)
+and [Options](https://www.nuget.org/packages/Microsoft.Extensions.Options).
+
+For examples of this functionality you may take a look at tests [here](https://github.com/DarkXaHTeP/DarkXaHTeP.Extensions.Configuration.Consul/blob/master/ConsulConfiguration.Test/ConsulConfigurationExtensionTest.cs).
