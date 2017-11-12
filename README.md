@@ -65,8 +65,7 @@ In case your Consul agent doesn't run on `http://localhost:8500` it is possible 
 Please note that both host and port should be specified to be used.
 
 #### Parsing sub-keys
-When Consul provider is added like this `.AddConsul("ExampleConsulKey")`, it will create a set of configuration entries.
-Let's assume that your Consul KV Store contains keys listed in the left table column. Corresponding configuration keys are listed on the right:
+Let's assume that Consul provider is added like this `.AddConsul("ExampleConsulKey")`and Consul KV Store contains keys listed in the left table column. Corresponding configuration keys, that will be created by provider, are listed on the right:
 
 | Consul KV Store Key                      | Configuration Key            |
 |------------------------------------------|------------------------------|
