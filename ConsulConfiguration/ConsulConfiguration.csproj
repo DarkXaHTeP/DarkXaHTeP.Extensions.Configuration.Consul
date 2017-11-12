@@ -11,7 +11,7 @@
     <PackageProjectUrl>https://github.com/DarkXaHTeP/DarkXaHTeP.Extensions.Configuration.Consul</PackageProjectUrl>
     <RepositoryUrl>https://github.com/DarkXaHTeP/DarkXaHTeP.Extensions.Configuration.Consul</RepositoryUrl>
     <PackageReleaseNotes>Fixed issue with base64 decoding</PackageReleaseNotes>
-    <PackageTags>config;configuration;microsoft.extensions.configuration;provider;consul;kvstore</PackageTags>
+    <PackageTags>asp.net;core;config;configuration;microsoft.extensions.configuration;provider;consul;kvstore</PackageTags>
     <IncludeSymbols>false</IncludeSymbols>
   </PropertyGroup>
   <ItemGroup>
