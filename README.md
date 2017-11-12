@@ -54,6 +54,16 @@ For release notes please see [CHANGELOG.md](https://github.com/DarkXaHTeP/DarkXa
 
 #### Providing custom Consul address
 
+In case your Consul agent doesn't run on `http://localhost:8500` it is possible to provide custom Consul address using one of two ways
+
+1. By specifying additional arguments to "AddConsul" method e.g. `.AddConsul("ExampleConsulKey", "example.com", 9999)`.
+    In this case will make a request to `http://example.com:9999/v1/kv/ExampleConsulKey?recurse=true` instead of localhost
+
+2. By setting two ENV variables - `CONSUL_HOST` and `CONSUL_PORT` to Consul host and port respectively
+    e.g. setting `CONSUL_HOST=example.com` and `CONSUL_PORT=9999` and calling `.AddConsul("ExampleConsulKey")` will give same result as the first case.
+
+Please note that both host and port should be set to be used.
+
 #### Parsing sub-keys
 
 #### Parsing arrays
