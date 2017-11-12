@@ -65,7 +65,8 @@ In case your Consul agent doesn't run on `http://localhost:8500` it is possible 
 Please note that both host and port should be specified to be used.
 
 #### Parsing sub-keys
-Let's assume that your Consul KV Store contains next keys with corresponding values:
+Let's assume that your Consul KV Store contains next keys:
+
 | Key                                      |
 |------------------------------------------|
 | ExampleConsulKey/key1                    |
