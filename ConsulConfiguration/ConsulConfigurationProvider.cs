@@ -24,7 +24,10 @@ namespace DarkXaHTeP.Extensions.Configuration.Consul
         {
             Dictionary<string, string> consulKeys = _consulClient.ReadKeysRecursively();
             Dictionary<string, string> config = _parser.ParseConfiguration(consulKeys, _consulKey);
-            Data = config;
+            foreach (var kvPair in config)
+            {
+                Set(kvPair.Key, kvPair.Value);
+            }
         }
     }
 }
