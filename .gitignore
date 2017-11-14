@@ -3,6 +3,7 @@
 bin/
 obj/
 release/
+appveyor/coverage
 appveyor/dotnet
 appveyor/*.zip
 appveyor/opencover
