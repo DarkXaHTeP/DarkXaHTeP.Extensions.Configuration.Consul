@@ -44,7 +44,7 @@ IWebHost webHost = new WebHostBuilder()
 
 #### What happens internally
 
-In both cases Consul configuration provider will make a GET HTTP request to Consul using URL `http://localhost:8500//v1/kv/ExampleConsulKey?recurse=true` to list all sub-keys of `ExampleConsulKey` and add them to configuration dictionary
+In both cases Consul configuration provider will make a GET HTTP request to Consul using URL `http://localhost:8500/v1/kv/ExampleConsulKey?recurse=true` to list all sub-keys of `ExampleConsulKey` and add them to configuration dictionary
 
 ## Release notes
 
