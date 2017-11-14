@@ -62,11 +62,15 @@ In case your Consul agent doesn't run on `http://localhost:8500` it is possible 
 2. By setting two ENV variables - `CONSUL_HOST` and `CONSUL_PORT` to Consul host and port respectively
     e.g. setting `CONSUL_HOST=example.com` and `CONSUL_PORT=9999` and calling `.AddConsul("ExampleConsulKey")` will give same result as the first case.
 
-Please note that both host and port should be specified to be used.
+Please note that each of host and port values can be set using different approach. Default value will be used if not set. For example:
+- setting just `CONSUL_HOST=example.com` and calling `.AddConsul("ExampleConsulKey")` will give base address `example.com:8500`.
+- setting `CONSUL_PORT=9999` and calling `.AddConsul("ExampleConsulKey", "example.com", null)` will give base address `example.com:9999`
+- setting `CONSUL_PORT=9999` and calling `.AddConsul("ExampleConsulKey")` will give address `localhost:9999`
 
 #### Parsing sub-keys
 
-Let's assume that Consul provider is added like this `.AddConsul("ExampleConsulKey")`and Consul KV Store contains keys listed in the left table column. Corresponding configuration keys, that will be created by provider, are listed on the right:
+Let's assume that Consul provider is added like this `.AddConsul("ExampleConsulKey")`and Consul KV Store contains keys listed in the left table column.
+Corresponding configuration keys, that will be created by provider, are listed on the right:
 
 | Consul KV Store Key                      | Configuration Key            |
 |------------------------------------------|------------------------------|
