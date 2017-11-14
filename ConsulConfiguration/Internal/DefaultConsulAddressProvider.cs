@@ -13,42 +13,59 @@ namespace DarkXaHTeP.Extensions.Configuration.Consul.Internal
         
         private string ResolveBaseAddress(string host, uint? port)
         {
-            var candidates = new[]
+            var hostCandidates = new[]
             {
-                CreateAddress(host, port),
-                GetEnvAddress(),
-                "localhost:8500"
+                host,
+                GetEnvVar("CONSUL_HOST"),
+                "localhost"
             };
 
-            return candidates.First(addr => !String.IsNullOrEmpty(addr));
+            var portCandidates = new uint?[]
+            {
+                port,
+                GetEnvPort(),
+                8500
+            };
+
+            return CreateAddress(First(hostCandidates), First(portCandidates));
         }
 
-        private string CreateAddress(string host, uint? port)
+        private string CreateAddress(string host, uint port)
         {
-            if (String.IsNullOrEmpty(host) || !port.HasValue)
-            {
-                return null;
-            }
-
             return $"{host}:{port}";
         }
 
-        private string GetEnvAddress()
+        private uint? GetEnvPort()
         {
-            string host = Environment.GetEnvironmentVariable("CONSUL_HOST");
-            string portString = Environment.GetEnvironmentVariable("CONSUL_PORT");
-            
-            if (String.IsNullOrEmpty(host) || String.IsNullOrEmpty(portString))
+            string portString = GetEnvVar("CONSUL_PORT");
+            if (String.IsNullOrEmpty(portString))
             {
                 return null;
             }
-
+            
             if (!UInt32.TryParse(portString, out var port))
             {
                 throw new ArgumentException("Cannot parse ENV variable \"CONSUL_PORT\". It's value is not a valid port");
             }
 
-            return CreateAddress(host, port);
-        }        
+            return port;
+        }
+        
+        private string GetEnvVar(string envVar)
+        {
+            return Environment.GetEnvironmentVariable(envVar);
+        }
+
+        private string First(string[] candidates)
+        {
+            return candidates.First(val => !String.IsNullOrEmpty(val));
+        }
+
+        private uint First(uint?[] candidates)
+        {
+            var candidate = candidates.First(val => val.HasValue);
+
+            return candidate.Value;
+        }
     }
 }
