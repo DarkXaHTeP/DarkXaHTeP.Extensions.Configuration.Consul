@@ -1,0 +1,26 @@
+version: '{build}'
+branches:
+  only:
+  - /master$/
+environment:
+  COVERALLS_TOKEN:
+    secure: 2lNkrHvEsIWkHQsUh+XocWDh/XwcVlOKgDSJSb1LAwT137SqfSiGHRPxy6L38zdy
+install:
+- echo %cd%
+- cd .\appveyor
+- echo %cd%
+- powershell .\install-software.ps1
+- cd ..
+- echo %cd%
+before_build:
+- .\appveyor\dotnet\dotnet.exe restore
+build_script:
+- .\appveyor\dotnet\dotnet.exe build
+test_script:
+- echo %cd%
+- cd .\appveyor
+- echo %cd%
+- .\generate-coverage.bat
+on_success:
+- echo %cd%
+- .\upload-coverage.bat
