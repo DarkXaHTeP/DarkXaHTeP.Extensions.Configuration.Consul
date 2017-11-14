@@ -2,7 +2,7 @@ mkdir .\coverage
 
 .\opencover\OpenCover.Console.exe ^
   -target:".\dotnet\dotnet.exe" ^
-  -targetargs:"test -f netcoreapp2.0 -c Release ..\ConsulConfiguration.Test\ConsulConfiguration.Test.csproj" ^
+  -targetargs:"test /p:DebugType=full -f netcoreapp2.0 -c Release ..\ConsulConfiguration.Test\ConsulConfiguration.Test.csproj" ^
   -mergeoutput ^
   -hideskipped:File ^
   -output:coverage/coverage.xml ^
