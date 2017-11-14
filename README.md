@@ -10,6 +10,7 @@ Consul configuration provider implementation for Microsoft.Extensions.Configurat
 #### Build
 
 [![Travis build](https://img.shields.io/travis/DarkXaHTeP/DarkXaHTeP.Extensions.Configuration.Consul/master.svg)](https://travis-ci.org/DarkXaHTeP/DarkXaHTeP.Extensions.Configuration.Consul)
+[![Coverage report](https://img.shields.io/coveralls/github/DarkXaHTeP/DarkXaHTeP.Extensions.Configuration.Consul.svg)](https://coveralls.io/github/DarkXaHTeP/DarkXaHTeP.Extensions.Configuration.Consul)
 
 ## Usage
 
