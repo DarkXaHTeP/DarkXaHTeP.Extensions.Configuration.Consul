@@ -1,6 +1,14 @@
 [
     {
         "LockIndex": 0,
+        "Key": "TestApp/",
+        "Flags": 0,
+        "Value": null,
+        "CreateIndex": 3258,
+        "ModifyIndex": 3258
+    },
+    {
+        "LockIndex": 0,
         "Key": "TestApp/ArrayKeys[0]",
         "Flags": 0,
         "Value": "YXJyYXkw",
