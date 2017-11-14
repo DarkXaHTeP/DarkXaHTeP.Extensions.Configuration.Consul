@@ -1,4 +1,8 @@
 .idea/
+.vscode/
 bin/
 obj/
 release/
+appveyor/dotnet
+appveyor/*.zip
+appveyor/opencover
