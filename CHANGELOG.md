@@ -1,3 +1,11 @@
+### 1.0.0
+
+* First stable release
+* Added test coverage ([#1](https://github.com/DarkXaHTeP/DarkXaHTeP.Extensions.Configuration.Consul/issues/1))
+* Changed behavior for custom Consul Address as described in [#5](https://github.com/DarkXaHTeP/DarkXaHTeP.Extensions.Configuration.Consul/issues/5)
+* Added readme and Changelog on GitHub
+* Improved tests
+
 ### 0.0.5
 
 * Fixed issue with base64 decoding of Consul values by adding check for nulls
