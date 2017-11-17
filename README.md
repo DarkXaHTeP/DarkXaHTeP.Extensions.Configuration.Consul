@@ -103,3 +103,9 @@ using [Configuration Binder](https://www.nuget.org/packages/Microsoft.Extensions
 and [Options](https://www.nuget.org/packages/Microsoft.Extensions.Options).
 
 For examples of this functionality you may take a look at tests [here](https://github.com/DarkXaHTeP/DarkXaHTeP.Extensions.Configuration.Consul/blob/master/ConsulConfiguration.Test/ConsulConfigurationExtensionTest.cs).
+
+## Contribution
+
+Feel free to ask questions and post bugs/ideas in the issues, as well as send pull requests.
+
+[![License](https://img.shields.io/github/license/darkxahtep/DarkXaHTeP.Extensions.Configuration.Consul.svg)](https://github.com/DarkXaHTeP/DarkXaHTeP.Extensions.Configuration.Consul/blob/master/LICENSE)
