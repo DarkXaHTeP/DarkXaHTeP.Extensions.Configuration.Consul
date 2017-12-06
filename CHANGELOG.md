@@ -1,3 +1,7 @@
+### 1.0.1
+
+* Removed CHANGELOG.md, LICENSE and README.md files from resulting package
+
 ### 1.0.0
 
 * First stable release
